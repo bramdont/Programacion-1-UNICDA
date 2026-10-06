@@ -1,0 +1,14 @@
+/Users/bramdont/Documents/Programacion1/EjercicioC#/bin/Debug/net10.0/EjercicioC#
+/Users/bramdont/Documents/Programacion1/EjercicioC#/bin/Debug/net10.0/EjercicioC#.deps.json
+/Users/bramdont/Documents/Programacion1/EjercicioC#/bin/Debug/net10.0/EjercicioC#.runtimeconfig.json
+/Users/bramdont/Documents/Programacion1/EjercicioC#/bin/Debug/net10.0/EjercicioC#.dll
+/Users/bramdont/Documents/Programacion1/EjercicioC#/bin/Debug/net10.0/EjercicioC#.pdb
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/EjercicioC#.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/EjercicioC#.AssemblyInfoInputs.cache
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/EjercicioC#.AssemblyInfo.cs
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/EjercicioC#.csproj.CoreCompileInputs.cache
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/EjercicioC#.dll
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/refint/EjercicioC#.dll
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/EjercicioC#.pdb
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/EjercicioC#.genruntimeconfig.cache
+/Users/bramdont/Documents/Programacion1/EjercicioC#/obj/Debug/net10.0/ref/EjercicioC#.dll
