@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/EjercicioC#/EjercicioC#.csproj",
-      "projectName": "EjercicioC#",
-      "projectPath": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/EjercicioC#/EjercicioC#.csproj",
+      "projectUniqueName": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio/Colegio.csproj",
+      "projectName": "Colegio",
+      "projectPath": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio/Colegio.csproj",
       "packagesPath": "/Users/bramdont/.nuget/packages/",
-      "outputPath": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/EjercicioC#/obj/",
+      "outputPath": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bramdont/.nuget/NuGet/NuGet.Config"
