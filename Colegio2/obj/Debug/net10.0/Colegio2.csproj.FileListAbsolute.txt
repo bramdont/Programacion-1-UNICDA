@@ -1,0 +1,15 @@
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/bin/Debug/net10.0/Colegio2
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/bin/Debug/net10.0/Colegio2.deps.json
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/bin/Debug/net10.0/Colegio2.runtimeconfig.json
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/bin/Debug/net10.0/Colegio2.dll
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/bin/Debug/net10.0/Colegio2.pdb
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.GeneratedMSBuildEditorConfig.editorconfig
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.AssemblyInfoInputs.cache
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.AssemblyInfo.cs
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.csproj.CoreCompileInputs.cache
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.sourcelink.json
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.dll
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/refint/Colegio2.dll
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.pdb
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/Colegio2.genruntimeconfig.cache
+/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/Colegio2/obj/Debug/net10.0/ref/Colegio2.dll
