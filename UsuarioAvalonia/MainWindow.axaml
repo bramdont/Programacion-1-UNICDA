@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:modelo="using:UsuarioAvalonia.Modelo"
+        x:Class="UsuarioAvalonia.MainWindow"
+        Title="Gestión de Usuarios - Avalonia"
+        Width="520" Height="460"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- Equivalente a Form1.Designer.cs: etiquetas, cajas de texto, botones y la grilla -->
+    <Grid Margin="30,20" RowDefinitions="Auto,Auto,Auto,*" ColumnDefinitions="Auto,*">
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nombre:"
+                   VerticalAlignment="Center" Margin="0,0,10,8" />
+        <TextBox x:Name="txtNombre" Grid.Row="0" Grid.Column="1"
+                 Width="220" MaxLength="50" HorizontalAlignment="Left" Margin="0,0,0,8" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Edad:"
+                   VerticalAlignment="Center" Margin="0,0,10,12" />
+        <TextBox x:Name="txtEdad" Grid.Row="1" Grid.Column="1"
+                 Width="100" HorizontalAlignment="Left" Margin="0,0,0,12" />
+
+        <StackPanel x:Name="panelBotones" Grid.Row="2" Grid.ColumnSpan="2"
+                    Orientation="Horizontal" Spacing="8">
+            <Button x:Name="btnGuardar" Content="Guardar" Width="90"
+                    HorizontalContentAlignment="Center" Click="btnGuardar_Click" />
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="90"
+                    HorizontalContentAlignment="Center" Click="btnActualizar_Click" />
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="90"
+                    HorizontalContentAlignment="Center" Click="btnEliminar_Click" />
+            <Button x:Name="btnLimpiar" Content="Limpiar" Width="90"
+                    HorizontalContentAlignment="Center" Click="btnLimpiar_Click" />
+        </StackPanel>
+
+        <DataGrid x:Name="grilla" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,16,0,0"
+                  IsReadOnly="True" AutoGenerateColumns="False" SelectionMode="Single"
+                  GridLinesVisibility="All" BorderThickness="1" BorderBrush="Gray"
+                  SelectionChanged="grilla_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Width="Auto"
+                                    x:DataType="modelo:UsuarioModel" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nombre" Width="*"
+                                    x:DataType="modelo:UsuarioModel" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Edad" Width="*"
+                                    x:DataType="modelo:UsuarioModel" Binding="{Binding Edad}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
