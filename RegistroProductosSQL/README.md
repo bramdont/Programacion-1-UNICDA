@@ -1,6 +1,6 @@
 # Registro de Productos en C# Avalonia y SQL Server
 
-Este proyecto implementa el sistema completo de **Registro de Productos y Control de Usuarios** desarrollado en el video tutorial de **Visual Studio y Microsoft SQL Server**.
+Este proyecto implementa el sistema completo de **Registro de Productos, Control de Usuarios y sistema de facturacion** 
 
 ---
 
@@ -14,12 +14,12 @@ Este proyecto implementa el sistema completo de **Registro de Productos y Contro
 
 ## 🗄️ Pasos de Configuración de la Base de Datos
 
-1. Abre **SQL Server Management Studio (SSMS)** y conéctate a tu servidor local.
-2. Abre el archivo **`Script_BaseDeDatos_Almacen.sql`** incluido en este proyecto.
-3. Ejecuta todo el script (`F5`). Esto creará:
+1. Abre **SQL Server Management Studio (SSMS)** y conéctate a tu servidor local o de azure.
+2. Crea la estructura de la base de datos segun la necesidad.
+3. Para este programa, estamos utilizando la base de datos personal de un servidor (Bramdont Garcia) por motivos instructivos unicamente:
    - La base de datos `programacion1`.
-   - Las tablas `Usuario` y `Productos`.
-   - Los **9 Procedimientos Almacenados** del sistema.
+   - Las tablas `Usuario`, `Productos`, `Factura`y `DetalleFactura`, `Productos`.
+   - Los **11 Procedimientos Almacenados** del sistema.
    - Los usuarios de prueba por defecto.
 
 ---
@@ -65,7 +65,7 @@ private static string cadenaConexion = @"Data Source=localhost;Initial Catalog=A
 1. En la ventana de productos pulsa **Facturar**.
 2. Escribe el cliente, elige un artículo, la cantidad y pulsa **Agregar** (repite para más artículos; **Quitar** elimina la línea seleccionada).
 3. **Guardar factura** registra la venta y descuenta el stock en una sola transacción.
-4. Pulsa **F5** (o el botón *Imprimir*) para guardar la factura como **PDF** o **TXT**.
+4. Pulsa **F5** (o el botón *Imprimir*) para guardar la factura como **PDF**
 
 El ITBIS (18%) se define en `Modelo/Factura.cs` (`ItbisPorcentaje`). Cualquier usuario (Administrador o Invitado) puede facturar.
 
