@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qYHN0OXWW44=",
+  "success": true,
+  "projectFilePath": "/Users/bramdont/Documents/Programacion1/JuegoSnake/JuegoSnake.csproj",
+  "expectedPackageFiles": [
+    "/Users/bramdont/.nuget/packages/microsoft.win32.systemevents/8.0.0/microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "/Users/bramdont/.nuget/packages/system.drawing.common/8.0.0/system.drawing.common.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
