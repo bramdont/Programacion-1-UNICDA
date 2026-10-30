@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RegistroProductosSQL.FormLogin"
+        Title="Login - Registro de Productos"
+        Width="360" Height="260"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+  <StackPanel Margin="30" Spacing="12">
+    <TextBlock Text="INICIO DE SESIÓN" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" RowSpacing="10" ColumnSpacing="10">
+      <TextBlock Grid.Row="0" Grid.Column="0" Text="Usuario:" VerticalAlignment="Center" />
+      <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtUsuario" />
+      <TextBlock Grid.Row="1" Grid.Column="0" Text="Contraseña:" VerticalAlignment="Center" />
+      <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtClave" PasswordChar="*" />
+    </Grid>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="15" Margin="0,10,0,0">
+      <Button x:Name="btnIngresar" Content="Ingresar" Width="110" Height="35"
+              HorizontalContentAlignment="Center" IsDefault="True" Click="btnIngresar_Click" />
+      <Button x:Name="btnSalir" Content="Salir" Width="110" Height="35"
+              HorizontalContentAlignment="Center" Click="btnSalir_Click" />
+    </StackPanel>
+  </StackPanel>
+</Window>

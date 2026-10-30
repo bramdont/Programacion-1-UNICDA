@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:m="using:RegistroProductosSQL.Modelo"
+        x:Class="RegistroProductosSQL.FormProductos"
+        Title="Registro de Productos y Control de Almacén"
+        Width="900" Height="520"
+        WindowStartupLocation="CenterScreen"
+        Opened="FormProductos_Opened">
+  <Grid RowDefinitions="Auto,*,Auto" Margin="15" RowSpacing="10">
+
+    <TextBlock Grid.Row="0" x:Name="lblUsuarioLogueado" Text="Usuario: -" FontWeight="Bold" />
+
+    <Grid Grid.Row="1" ColumnDefinitions="320,*" ColumnSpacing="15">
+
+      <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="15">
+        <StackPanel Spacing="10">
+          <TextBlock Text="Registro de Producto" FontWeight="Bold" />
+          <Grid ColumnDefinitions="70,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+            <TextBlock Grid.Row="0" Text="Código:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtCodigo" IsReadOnly="True" />
+            <TextBlock Grid.Row="1" Text="Nombre:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtNombre" />
+            <TextBlock Grid.Row="2" Text="Precio:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtPrecio" />
+            <TextBlock Grid.Row="3" Text="Stock:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtStock" />
+            <TextBlock Grid.Row="4" Text="Marca:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtMarca" />
+          </Grid>
+          <WrapPanel Margin="0,10,0,0">
+            <Button x:Name="btnNuevo" Content="Nuevo" Width="90" Margin="0,0,10,10" Click="btnNuevo_Click" />
+            <Button x:Name="btnInsertar" Content="Insertar" Width="90" Margin="0,0,10,10" Click="btnInsertar_Click" />
+            <Button x:Name="btnActualizar" Content="Actualizar" Width="90" Margin="0,0,0,10" Click="btnActualizar_Click" />
+            <Button x:Name="btnEliminar" Content="Eliminar" Width="90" Margin="0,0,10,0" Click="btnEliminar_Click" />
+            <Button x:Name="btnLimpiar" Content="Limpiar" Width="90" Click="btnLimpiar_Click" />
+          </WrapPanel>
+        </StackPanel>
+      </Border>
+
+      <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="15">
+        <Grid RowDefinitions="Auto,Auto,*,Auto" RowSpacing="10">
+          <TextBlock Grid.Row="0" Text="Búsqueda y Listado de Productos" FontWeight="Bold" />
+          <Grid Grid.Row="1" ColumnDefinitions="120,*,Auto" ColumnSpacing="10">
+            <ComboBox x:Name="cbCriterio" Grid.Column="0" Width="120">
+              <ComboBoxItem Content="Nombre" />
+              <ComboBoxItem Content="Código" />
+              <ComboBoxItem Content="Precio" />
+              <ComboBoxItem Content="Marca" />
+            </ComboBox>
+            <TextBox x:Name="txtBuscar" Grid.Column="1" />
+            <Button x:Name="btnBuscar" Grid.Column="2" Content="Buscar" Width="100" Click="btnBuscar_Click" />
+          </Grid>
+          <DataGrid Grid.Row="2" x:Name="dgvProductos" x:DataType="m:Producto"
+                    AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+                    GridLinesVisibility="All" SelectionChanged="dgvProductos_SelectionChanged">
+            <DataGrid.Columns>
+              <DataGridTextColumn Header="Código" Binding="{Binding Codigo}" Width="Auto" />
+              <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+              <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Width="Auto" />
+              <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="Auto" />
+              <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" Width="*" />
+            </DataGrid.Columns>
+          </DataGrid>
+          <TextBlock Grid.Row="3" x:Name="lblTotalRegistros" Text="Registros encontrados: 0" />
+        </Grid>
+      </Border>
+    </Grid>
+
+    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+      <Button x:Name="btnFacturar" Content="Facturar" Width="100" Click="btnFacturar_Click" />
+      <Button x:Name="btnSalir" Content="Salir" Width="100" Click="btnSalir_Click" />
+    </StackPanel>
+  </Grid>
+</Window>

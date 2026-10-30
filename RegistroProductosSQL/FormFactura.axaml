@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:m="using:RegistroProductosSQL.Modelo"
+        x:Class="RegistroProductosSQL.FormFactura"
+        Title="Nueva Factura"
+        Width="820" Height="600"
+        WindowStartupLocation="CenterOwner"
+        Opened="FormFactura_Opened">
+  <Grid RowDefinitions="Auto,Auto,*,Auto,Auto" Margin="15" RowSpacing="12">
+
+    <TextBlock Grid.Row="0" x:Name="lblNumero" Text="Factura nueva (sin guardar)" FontSize="18" FontWeight="Bold" />
+
+    <StackPanel Grid.Row="1" x:Name="panelEdicion" Spacing="12">
+      <Grid ColumnDefinitions="Auto,*,Auto,200" ColumnSpacing="10">
+        <TextBlock Grid.Column="0" Text="Cliente:" VerticalAlignment="Center" />
+        <TextBox Grid.Column="1" x:Name="txtCliente" Watermark="Nombre del cliente" />
+        <TextBlock Grid.Column="2" Text="Cédula:" VerticalAlignment="Center" />
+        <TextBox Grid.Column="3" x:Name="txtCedula" />
+      </Grid>
+      <Grid ColumnDefinitions="Auto,*,Auto,90,Auto,Auto" ColumnSpacing="10">
+        <TextBlock Grid.Column="0" Text="Artículo:" VerticalAlignment="Center" />
+        <ComboBox Grid.Column="1" x:Name="cbProducto" HorizontalAlignment="Stretch" PlaceholderText="Seleccione un artículo" />
+        <TextBlock Grid.Column="2" Text="Cantidad:" VerticalAlignment="Center" />
+        <TextBox Grid.Column="3" x:Name="txtCantidad" Text="1" />
+        <Button Grid.Column="4" Content="Agregar" Width="90" Click="btnAgregar_Click" />
+        <Button Grid.Column="5" Content="Quitar" Width="90" Click="btnQuitar_Click" />
+      </Grid>
+    </StackPanel>
+
+    <DataGrid Grid.Row="2" x:Name="dgvLineas" x:DataType="m:LineaFactura"
+              AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+              GridLinesVisibility="All">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Código" Binding="{Binding IdProducto}" Width="Auto" />
+        <DataGridTextColumn Header="Artículo" Binding="{Binding Nombre}" Width="*" />
+        <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" Width="Auto" />
+        <DataGridTextColumn Header="P. Unitario" Binding="{Binding PrecioUnitario, StringFormat=N2}" Width="Auto" />
+        <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal, StringFormat=N2}" Width="Auto" />
+      </DataGrid.Columns>
+    </DataGrid>
+
+    <StackPanel Grid.Row="3" HorizontalAlignment="Right" Spacing="4">
+      <TextBlock x:Name="lblSubtotal" Text="Subtotal: 0.00" HorizontalAlignment="Right" />
+      <TextBlock x:Name="lblItbis" Text="ITBIS: 0.00" HorizontalAlignment="Right" />
+      <TextBlock x:Name="lblTotal" Text="TOTAL: 0.00" FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" />
+    </StackPanel>
+
+    <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+      <Button x:Name="btnGuardar" Content="Guardar factura" Width="130" Click="btnGuardar_Click" />
+      <Button x:Name="btnImprimir" Content="Imprimir (F5)" Width="130" Click="btnImprimir_Click" />
+      <Button x:Name="btnNueva" Content="Nueva" Width="90" Click="btnNueva_Click" />
+      <Button x:Name="btnCerrar" Content="Cerrar" Width="90" Click="btnCerrar_Click" />
+    </StackPanel>
+  </Grid>
+</Window>

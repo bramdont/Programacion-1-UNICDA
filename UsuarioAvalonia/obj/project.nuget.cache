@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uZrrrbOoHb0=",
+  "dgSpecHash": "eGU8msJLflo=",
   "success": true,
-  "projectFilePath": "/Users/bramdont/Documents/Programacion1/UsuarioAvalonia/UsuarioAvalonia.csproj",
+  "projectFilePath": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/UsuarioAvalonia/UsuarioAvalonia.csproj",
   "expectedPackageFiles": [
     "/Users/bramdont/.nuget/packages/avalonia/12.1.4/avalonia.12.1.4.nupkg.sha512",
     "/Users/bramdont/.nuget/packages/avalonia.angle.windows.natives/2.1.27548.20260419/avalonia.angle.windows.natives.2.1.27548.20260419.nupkg.sha512",

@@ -3166,11 +3166,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bramdont/Documents/Programacion1/UsuarioAvalonia/UsuarioAvalonia.csproj",
+      "projectUniqueName": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/UsuarioAvalonia/UsuarioAvalonia.csproj",
       "projectName": "UsuarioAvalonia",
-      "projectPath": "/Users/bramdont/Documents/Programacion1/UsuarioAvalonia/UsuarioAvalonia.csproj",
+      "projectPath": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/UsuarioAvalonia/UsuarioAvalonia.csproj",
       "packagesPath": "/Users/bramdont/.nuget/packages/",
-      "outputPath": "/Users/bramdont/Documents/Programacion1/UsuarioAvalonia/obj/",
+      "outputPath": "/Users/bramdont/Documents/Programacion1/git/Programacion-1-UNICDA/UsuarioAvalonia/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bramdont/.nuget/NuGet/NuGet.Config"
