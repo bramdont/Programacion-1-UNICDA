@@ -32,7 +32,13 @@ Este proyecto implementa el sistema completo de **Registro de Productos, Control
 | :--- | :--- | :--- | :--- |
 | **`bramdont`** | `P@ssw0rd` | **`Administrador`** | Productos, crear cajeros, reportes. **No factura.** |
 | **`usuario`** | `12345` | **`Invitado`** | Solo consulta y búsqueda de productos |
-| *(los crea el administrador)* | | **`Cajero`** (turno Mañana, Tarde o Noche) | Solo **factura**, y únicamente dentro de su turno |
+| **`cajero1`** | `12345` | **`Cajero`** - turno Mañana | Solo **factura**, y únicamente dentro de su turno |
+| **`cajero2`** | `12345` | **`Cajero`** - turno Mañana | Igual que `cajero1` |
+| **`cajero3`** | `12345` | **`Cajero`** - turno Tarde | Igual que `cajero1` |
+| **`cajero4`** | `12345` | **`Cajero`** - turno Tarde | Igual que `cajero1` |
+| **`cajero5`** | `12345` | **`Cajero`** - turno Noche | Igual que `cajero1` |
+
+Los cajeros de prueba se crean con **`BaseDatos/CajerosDePrueba.sql`** (después de `Facturacion.sql`; se puede ejecutar varias veces sin duplicar). El administrador puede crear más desde el menú **Cajeros y turnos**.
 
 Turnos (se cambian en `Clases/Turnos.cs`): **Mañana** 06:00-14:00, **Tarde** 14:00-22:00, **Noche** 22:00-06:00.
 
@@ -62,7 +68,7 @@ private static string cadenaConexion = @"Data Source=localhost;Initial Catalog=A
    ```bash
    dotnet run
    ```
-4. Ingresa con los usuarios de prueba (`bramdont` / `P@ssw0rd` o `usuario` / `12345`).
+4. Ingresa con los usuarios de prueba (`bramdont` / `P@ssw0rd`, `usuario` / `12345` o `cajero1` a `cajero5` / `12345`). Un cajero solo puede facturar dentro de su turno.
 
 ---
 
@@ -99,6 +105,7 @@ dotnet restore
 ## 🛠️ Estructura del Código
 
 - **`BaseDatos/Facturacion.sql`**: Tablas, columnas y procedimientos de la facturación (idempotente).
+- **`BaseDatos/CajerosDePrueba.sql`**: Crea `cajero1` a `cajero5` (clave `12345`).
 - **`Clases/Conexion.cs`**: Manejo de conexión a la BD mediante `SqlConnection`.
 - **`Clases/Variables.cs`**: Sesión del usuario (rol, turno).
 - **`Clases/Turnos.cs`**: Horarios de los turnos y validación de "dentro de turno".
