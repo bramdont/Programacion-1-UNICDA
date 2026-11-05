@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bramdont/Documents/Programacion1/RegistroProductosSQL/RegistroProductosSQL.csproj": {}
+    "/Users/bramdont/Documents/Programacion1/Programacion-1-UNICDA/RegistroProductosSQL/RegistroProductosSQL.csproj": {}
   },
   "projects": {
-    "/Users/bramdont/Documents/Programacion1/RegistroProductosSQL/RegistroProductosSQL.csproj": {
+    "/Users/bramdont/Documents/Programacion1/Programacion-1-UNICDA/RegistroProductosSQL/RegistroProductosSQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bramdont/Documents/Programacion1/RegistroProductosSQL/RegistroProductosSQL.csproj",
+        "projectUniqueName": "/Users/bramdont/Documents/Programacion1/Programacion-1-UNICDA/RegistroProductosSQL/RegistroProductosSQL.csproj",
         "projectName": "RegistroProductosSQL",
-        "projectPath": "/Users/bramdont/Documents/Programacion1/RegistroProductosSQL/RegistroProductosSQL.csproj",
+        "projectPath": "/Users/bramdont/Documents/Programacion1/Programacion-1-UNICDA/RegistroProductosSQL/RegistroProductosSQL.csproj",
         "packagesPath": "/Users/bramdont/.nuget/packages/",
-        "outputPath": "/Users/bramdont/Documents/Programacion1/RegistroProductosSQL/obj/",
+        "outputPath": "/Users/bramdont/Documents/Programacion1/Programacion-1-UNICDA/RegistroProductosSQL/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bramdont/.nuget/NuGet/NuGet.Config"
@@ -61,6 +61,10 @@
             "Avalonia.Themes.Fluent": {
               "target": "Package",
               "version": "[11.3.6, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2026.9.1, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

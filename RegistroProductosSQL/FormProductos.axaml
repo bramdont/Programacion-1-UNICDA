@@ -67,7 +67,6 @@
     </Grid>
 
     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
-      <Button x:Name="btnFacturar" Content="Facturar" Width="100" Click="btnFacturar_Click" />
       <Button x:Name="btnSalir" Content="Salir" Width="100" Click="btnSalir_Click" />
     </StackPanel>
   </Grid>

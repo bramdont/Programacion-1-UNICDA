@@ -18,18 +18,24 @@ Este proyecto implementa el sistema completo de **Registro de Productos, Control
 2. Crea la estructura de la base de datos segun la necesidad.
 3. Para este programa, estamos utilizando la base de datos personal de un servidor (Bramdont Garcia) por motivos instructivos unicamente:
    - La base de datos `programacion1`.
-   - Las tablas `Usuario`, `Productos`, `Factura`y `DetalleFactura`, `Productos`.
-   - Los **11 Procedimientos Almacenados** del sistema.
+   - Las tablas `Usuario`, `Productos`, `Factura` y `DetalleFactura`.
+   - Las tablas nuevas `Cliente` y `CuentaPorCobrar`.
+   - Los procedimientos almacenados del sistema (productos, sesión, cajeros, facturas y reportes).
    - Los usuarios de prueba por defecto.
+4. La facturación con cajeros, cuentas por cobrar y reportes se instala ejecutando **`BaseDatos/Facturacion.sql`** en SSMS (o Azure Data Studio). El script solo **agrega** (no borra ni renombra nada) y se puede ejecutar varias veces sin problema.
 
 ---
 
-## 🔐 Usuarios de Prueba Creados
+## 🔐 Usuarios y Roles
 
 | Usuario | Contraseña | Estado / Rol | Permisos |
 | :--- | :--- | :--- | :--- |
-| **`bramdont`** | `P@ssw0rd` | **`Administrador`** | Acceso total (Nuevo, Insertar, Actualizar, Eliminar, Buscar) |
-| **`usuario`** | `12345` | **`Invitado`** | Acceso restringido (Solo consulta y búsqueda) |
+| **`bramdont`** | `P@ssw0rd` | **`Administrador`** | Productos, crear cajeros, reportes. **No factura.** |
+| **`usuario`** | `12345` | **`Invitado`** | Solo consulta y búsqueda de productos |
+| *(los crea el administrador)* | | **`Cajero`** (turno Mañana, Tarde o Noche) | Solo **factura**, y únicamente dentro de su turno |
+
+Turnos (se cambian en `Clases/Turnos.cs`): **Mañana** 06:00-14:00, **Tarde** 14:00-22:00, **Noche** 22:00-06:00.
+
 
 ---
 
@@ -62,23 +68,51 @@ private static string cadenaConexion = @"Data Source=localhost;Initial Catalog=A
 
 ## 🧾 Facturación
 
-1. En la ventana de productos pulsa **Facturar**.
-2. Escribe el cliente, elige un artículo, la cantidad y pulsa **Agregar** (repite para más artículos; **Quitar** elimina la línea seleccionada).
-3. **Guardar factura** registra la venta y descuenta el stock en una sola transacción.
-4. Pulsa **F5** (o el botón *Imprimir*) para guardar la factura como **PDF**
+1. Inicia sesión como **cajero** y pulsa **Facturar** (solo funciona dentro de su turno).
+2. Escribe el nombre y la cédula del cliente, elige un artículo (o escribe su código), la cantidad y pulsa **Agregar**.
+3. Elige el tipo de factura:
+   - **Contado:** escribe el monto pagado; la pantalla muestra la devuelta (el pago debe cubrir el total).
+   - **Crédito:** la factura se registra en **cuentas por cobrar** del cliente.
+4. **Guardar factura** guarda todo en una sola transacción, descuenta el stock y genera el PDF.
+5. El PDF queda en `Documentos/Facturas/Factura-00001.pdf` y se abre solo. **F5** lo vuelve a abrir.
 
-El ITBIS (18%) se define en `Modelo/Factura.cs` (`ItbisPorcentaje`). Cualquier usuario (Administrador o Invitado) puede facturar.
+- Numeración de 5 dígitos, consecutiva y sin repetidos (`00001`, `00002`, ...), asignada por la base de datos.
+- El ITBIS (18%) se define en `Modelo/Factura.cs` (`ItbisPorcentaje`). En la BD el campo `iva` guarda el **monto** del ITBIS (por línea en `DetalleFactura` y total en `Factura`).
+- Total bruto + ITBIS = Total a pagar.
+
+## 📊 Reportes (solo administrador)
+
+Cuadre del día, ventas por cajero, inventario en stock, facturas a crédito o contado (con filtro), los 5 clientes con más ventas y cuentas por cobrar pendientes.
+
+## 📄 Librería del PDF
+
+Se usa **QuestPDF** (licencia Community). Ya está en el `.csproj`; solo hay que restaurar paquetes:
+
+```bash
+dotnet restore
+```
+
+(o, en un proyecto nuevo: `dotnet add package QuestPDF`).
 
 ---
 
 ## 🛠️ Estructura del Código
 
+- **`BaseDatos/Facturacion.sql`**: Tablas, columnas y procedimientos de la facturación (idempotente).
 - **`Clases/Conexion.cs`**: Manejo de conexión a la BD mediante `SqlConnection`.
-- **`Clases/Variables.cs`**: Almacena la sesión del usuario (Rol/Estado Administrador vs Invitado).
-- **`Clases/MetodosProducto.cs`**: Ejecución de los 9 procedimientos almacenados.
-- **`Modelo/Producto.cs`**: Modelo que convierte el `DataTable` de los SP en filas para el `DataGrid`.
-- **`Clases/MetodosFactura.cs`** y **`Clases/ImpresionFactura.cs`**: Guardado de facturas y generación de TXT/PDF.
-- **`FormFactura.axaml(.cs)`**: Ventana de facturación.
-- **`Mensajes.cs`**: Diálogos de aviso/confirmación (reemplazo de `MessageBox`).
-- **`FormLogin.axaml(.cs)`**: Pantalla de Login con validación de credenciales.
-- **`FormProductos.axaml(.cs)`**: Ventana principal CRUD de productos y búsquedas dinámicas.
+- **`Clases/Variables.cs`**: Sesión del usuario (rol, turno).
+- **`Clases/Turnos.cs`**: Horarios de los turnos y validación de "dentro de turno".
+- **`Clases/MetodosProducto.cs`**: Procedimientos de productos e inicio de sesión.
+- **`Clases/MetodosUsuario.cs`**: Crear y listar cajeros.
+- **`Clases/MetodosFactura.cs`**: Guardado de la factura (cliente, cabecera, líneas, cuenta por cobrar) en una transacción.
+- **`Clases/MetodosReporte.cs`**: Consultas de los reportes.
+- **`Clases/ImpresionFactura.cs`**: PDF de la factura con QuestPDF.
+- **`Modelo/`**: `Producto`, `Cajero`, `Factura` y `LineaFactura`.
+- **`Navegacion.cs`**, **`Mensajes.cs`**: Cambio de ventana principal y diálogos de aviso/confirmación.
+- **`FormLogin`**: Login; según el rol abre `FormAdmin`, `FormCajero` o `FormProductos` (Invitado).
+- **`FormAdmin`**: Menú del administrador (Productos, Cajeros, Reportes).
+- **`FormCajero`**: Menú del cajero (Facturar).
+- **`FormProductos`**: CRUD de productos y búsquedas.
+- **`FormCajeros`**: Alta de cajeros con su turno.
+- **`FormFactura`**: Ventana de facturación.
+- **`FormReportes`**: Reportes.

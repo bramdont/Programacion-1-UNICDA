@@ -168,12 +168,6 @@ namespace RegistroProductosSQL
             CargarProductos();
         }
 
-        private async void btnFacturar_Click(object? sender, RoutedEventArgs e)
-        {
-            await new FormFactura().ShowDialog(this);
-            //CargarProductos(); // las ventas descuentan stock
-        }
-
         private void btnSalir_Click(object? sender, RoutedEventArgs e)
         {
             Close();

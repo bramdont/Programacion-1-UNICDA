@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RegistroProductosSQL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1259ee41440dd74c4d88f8cb6003185e32bc0fb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f114cf2c88c19aec4155e3c5a5014efc50d53033")]
 [assembly: System.Reflection.AssemblyProductAttribute("RegistroProductosSQL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RegistroProductosSQL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

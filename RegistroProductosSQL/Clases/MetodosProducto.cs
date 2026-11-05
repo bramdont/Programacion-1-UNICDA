@@ -132,7 +132,8 @@ namespace RegistroProductosSQL.Clases
                         {
                             Variables.IdUsuario = Convert.ToInt32(dr["id_usuario"]);
                             Variables.NombreUsuario = dr["nombres"].ToString() + " " + dr["apellidos"].ToString();
-                            Variables.Estado = dr["estado"].ToString() ?? "Invitado";
+                            Variables.Estado = dr["estado"].ToString() ?? Variables.Invitado;
+                            Variables.Turno = dr["turno"] == DBNull.Value ? string.Empty : dr["turno"].ToString() ?? string.Empty;
                             return true;
                         }
                     }

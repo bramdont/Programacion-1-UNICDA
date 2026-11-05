@@ -1,0 +1,61 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:m="using:RegistroProductosSQL.Modelo"
+        x:Class="RegistroProductosSQL.FormCajeros"
+        Title="Cajeros y Turnos"
+        Width="900" Height="520"
+        WindowStartupLocation="CenterOwner"
+        Opened="FormCajeros_Opened">
+  <Grid RowDefinitions="*,Auto" Margin="15" RowSpacing="10">
+
+    <Grid Grid.Row="0" ColumnDefinitions="340,*" ColumnSpacing="15">
+
+      <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="15">
+        <StackPanel Spacing="10">
+          <TextBlock Text="Nuevo Cajero" FontWeight="Bold" />
+          <Grid ColumnDefinitions="90,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="8">
+            <TextBlock Grid.Row="0" Text="Cédula:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtCedula" />
+            <TextBlock Grid.Row="1" Text="Nombres:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtNombres" />
+            <TextBlock Grid.Row="2" Text="Apellidos:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtApellidos" />
+            <TextBlock Grid.Row="3" Text="Teléfono:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtTelefono" />
+            <TextBlock Grid.Row="4" Text="Email:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtEmail" />
+            <TextBlock Grid.Row="5" Text="Usuario:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtUsuario" />
+            <TextBlock Grid.Row="6" Text="Contraseña:" VerticalAlignment="Center" />
+            <TextBox Grid.Row="6" Grid.Column="1" x:Name="txtClave" PasswordChar="*" />
+            <TextBlock Grid.Row="7" Text="Turno:" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="7" Grid.Column="1" x:Name="cbTurno" HorizontalAlignment="Stretch" PlaceholderText="Seleccione un turno" />
+          </Grid>
+          <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,10,0,0">
+            <Button x:Name="btnCrear" Content="Crear cajero" Width="110" Click="btnCrear_Click" />
+            <Button x:Name="btnLimpiar" Content="Limpiar" Width="90" Click="btnLimpiar_Click" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+
+      <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" CornerRadius="4" Padding="15">
+        <Grid RowDefinitions="Auto,*,Auto" RowSpacing="10">
+          <TextBlock Grid.Row="0" Text="Cajeros registrados" FontWeight="Bold" />
+          <DataGrid Grid.Row="1" x:Name="dgvCajeros" x:DataType="m:Cajero"
+                    AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single"
+                    GridLinesVisibility="All">
+            <DataGrid.Columns>
+              <DataGridTextColumn Header="Cédula" Binding="{Binding Cedula}" Width="Auto" />
+              <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+              <DataGridTextColumn Header="Usuario" Binding="{Binding Usuario}" Width="Auto" />
+              <DataGridTextColumn Header="Turno" Binding="{Binding Turno}" Width="Auto" />
+            </DataGrid.Columns>
+          </DataGrid>
+          <TextBlock Grid.Row="2" x:Name="lblTotalRegistros" Text="Cajeros: 0" />
+        </Grid>
+      </Border>
+    </Grid>
+
+    <Button Grid.Row="1" x:Name="btnCerrar" Content="Cerrar" Width="100" HorizontalAlignment="Right" Click="btnCerrar_Click" />
+  </Grid>
+</Window>

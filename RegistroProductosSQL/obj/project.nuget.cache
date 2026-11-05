@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h5hhP0535zE=",
+  "dgSpecHash": "/hSvzUdjF1w=",
   "success": true,
-  "projectFilePath": "/Users/bramdont/Documents/Programacion1/RegistroProductosSQL/RegistroProductosSQL.csproj",
+  "projectFilePath": "/Users/bramdont/Documents/Programacion1/Programacion-1-UNICDA/RegistroProductosSQL/RegistroProductosSQL.csproj",
   "expectedPackageFiles": [
     "/Users/bramdont/.nuget/packages/avalonia/11.3.6/avalonia.11.3.6.nupkg.sha512",
     "/Users/bramdont/.nuget/packages/avalonia.angle.windows.natives/2.1.25547.20250602/avalonia.angle.windows.natives.2.1.25547.20250602.nupkg.sha512",
@@ -24,6 +24,7 @@
     "/Users/bramdont/.nuget/packages/microcom.runtime/0.11.0/microcom.runtime.0.11.0.nupkg.sha512",
     "/Users/bramdont/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/Users/bramdont/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "/Users/bramdont/.nuget/packages/questpdf/2026.9.1/questpdf.2026.9.1.nupkg.sha512",
     "/Users/bramdont/.nuget/packages/runtime.native.system.data.sqlclient.sni/4.7.0/runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "/Users/bramdont/.nuget/packages/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "/Users/bramdont/.nuget/packages/runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

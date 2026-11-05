@@ -1,6 +1,4 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using RegistroProductosSQL.Clases;
 
@@ -32,15 +30,14 @@ namespace RegistroProductosSQL
                 {
                     await Mensajes.Mostrar(this, $"Bienvenido al Sistema, {Variables.NombreUsuario}", "Acceso Concedido");
 
-                    // Avalonia no permite ShowDialog con un dueño oculto: la ventana de
-                    // productos pasa a ser la principal y luego se cierra el login
-                    FormProductos mainForm = new FormProductos();
-                    if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+                    // Cada rol tiene su propio menú: el cajero no ve las funciones de administración
+                    Window principal = Variables.Estado switch
                     {
-                        desktop.MainWindow = mainForm;
-                    }
-                    mainForm.Show();
-                    this.Close();
+                        Variables.Administrador => new FormAdmin(),
+                        Variables.Cajero => new FormCajero(),
+                        _ => new FormProductos() // Invitado: solo consulta
+                    };
+                    Navegacion.IrA(this, principal);
                 }
                 else
                 {

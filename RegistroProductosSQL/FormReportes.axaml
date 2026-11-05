@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="RegistroProductosSQL.FormReportes"
+        Title="Reportes"
+        Width="950" Height="560"
+        WindowStartupLocation="CenterOwner"
+        Opened="FormReportes_Opened">
+  <Grid RowDefinitions="Auto,*,Auto" Margin="15" RowSpacing="10">
+
+    <WrapPanel Grid.Row="0" x:Name="panelFiltros">
+      <TextBlock Text="Reporte:" VerticalAlignment="Center" Margin="0,0,8,0" />
+      <ComboBox x:Name="cbReporte" Width="260" Margin="0,0,15,0" SelectionChanged="cbReporte_SelectionChanged">
+        <ComboBoxItem Content="Cuadre del día" />
+        <ComboBoxItem Content="Ventas por cajero" />
+        <ComboBoxItem Content="Inventario en stock" />
+        <ComboBoxItem Content="Facturas a crédito o contado" />
+        <ComboBoxItem Content="Los 5 clientes con más ventas" />
+        <ComboBoxItem Content="Cuentas por cobrar pendientes" />
+      </ComboBox>
+      <StackPanel x:Name="panelDesde" Orientation="Horizontal" Spacing="8" Margin="0,0,15,0">
+        <TextBlock x:Name="lblDesde" Text="Desde:" VerticalAlignment="Center" />
+        <DatePicker x:Name="dpDesde" />
+      </StackPanel>
+      <StackPanel x:Name="panelHasta" Orientation="Horizontal" Spacing="8" Margin="0,0,15,0">
+        <TextBlock Text="Hasta:" VerticalAlignment="Center" />
+        <DatePicker x:Name="dpHasta" />
+      </StackPanel>
+      <StackPanel x:Name="panelTipo" Orientation="Horizontal" Spacing="8" Margin="0,0,15,0">
+        <TextBlock Text="Tipo:" VerticalAlignment="Center" />
+        <ComboBox x:Name="cbTipo" Width="120">
+          <ComboBoxItem Content="Todas" />
+          <ComboBoxItem Content="Contado" />
+          <ComboBoxItem Content="Crédito" />
+        </ComboBox>
+      </StackPanel>
+      <Button x:Name="btnGenerar" Content="Generar" Width="100" Click="btnGenerar_Click" />
+    </WrapPanel>
+
+    <DataGrid Grid.Row="1" x:Name="dgvReporte" AutoGenerateColumns="False" IsReadOnly="True"
+              SelectionMode="Single" GridLinesVisibility="All" />
+
+    <Grid Grid.Row="2" ColumnDefinitions="*,Auto">
+      <TextBlock x:Name="lblResumen" Text="Seleccione un reporte y pulse Generar." VerticalAlignment="Center" />
+      <Button Grid.Column="1" x:Name="btnCerrar" Content="Cerrar" Width="100" Click="btnCerrar_Click" />
+    </Grid>
+  </Grid>
+</Window>
